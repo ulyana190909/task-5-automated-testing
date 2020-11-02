@@ -16,19 +16,19 @@ public class DataGenerator {
     public static Faker faker = new Faker(new Locale("ru"));
 
     public static String getCity() {
-        List<String> list = Arrays.asList("Смоленск", "Краснодар", "Москва");
+        List<String> list = Arrays.asList("Омск","Санкт-Петербург", "Иркутск", "Мурманск", "Пенза", "Ярославль", "Севастополь", "Смоленск", "Краснодар", "Москва");
         Random random = new Random();
         String city = list.get(random.nextInt(list.size()));
         return city;
     }
 
-    public static String getDate() {
+    public static String getDate(int day) {
         String dateOfDelivery = LocalDate.now().plusDays(3).format(DateTimeFormatter.ofPattern("dd.MM.yyyy"));
         return dateOfDelivery;
     }
 
     public static String getName() {
-        String name = faker.name().lastName() + "" + faker.name().firstName();
+        String name = faker.name().lastName() + " " + faker.name().firstName();
         return name;
     }
 
