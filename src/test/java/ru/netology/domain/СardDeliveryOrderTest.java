@@ -1,10 +1,6 @@
 package ru.netology.domain;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.Keys;
-
-import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
-
 import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
@@ -29,7 +25,7 @@ public class СardDeliveryOrderTest {
     }
 
     @Test
-    void shouldSendFormWithSameDate () {
+    void shouldSendFormWithAnotherDate () {
         open("http://localhost:9999");
         $("[data-test-id='city'] .input__control").setValue(city);
         $("[data-test-id='date'] .input__control").setValue(DataGenerator.getDate(3));
