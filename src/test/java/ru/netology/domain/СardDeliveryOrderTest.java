@@ -15,6 +15,7 @@ public class СardDeliveryOrderTest {
     void shouldSendValidRequest() {
         open("http://localhost:9999");
         $("[data-test-id='city'] .input__control").setValue(city);
+        $("[data-test-id='date'] .input__control").doubleClick().sendKeys(Keys.BACK_SPACE);
         $("[data-test-id='date'] .input__control").setValue(DataGenerator.getDate(3));
         $("[data-test-id='name'] .input__control").setValue(name);
         $("[data-test-id='phone'] .input__control").setValue(phone);
@@ -28,6 +29,7 @@ public class СardDeliveryOrderTest {
     void shouldSendFormWithAnotherDate () {
         open("http://localhost:9999");
         $("[data-test-id='city'] .input__control").setValue(city);
+        $("[data-test-id='date'] .input__control").doubleClick().sendKeys(Keys.BACK_SPACE);
         $("[data-test-id='date'] .input__control").setValue(DataGenerator.getDate(3));
         $("[data-test-id='name'] .input__control").setValue(name);
         $("[data-test-id='phone'] .input__control").setValue(phone);
@@ -39,7 +41,6 @@ public class СardDeliveryOrderTest {
         $("[data-test-id='date'] .input__control").doubleClick().sendKeys(Keys.BACK_SPACE);
         $("[data-test-id='date'] .input__control").setValue(DataGenerator.getDate(5));
         $$("[type='button']").find(exactText("Запланировать")).click();
-       // $("[data-test-id='replan-notification'] .notification__title").shouldHave(text("Необходимо подтверждение"));
         $("[data-test-id='replan-notification'] .button__text").shouldHave(text("Перепланировать")).click();
         $("[data-test-id=success-notification] .notification__content").shouldHave(text("Встреча успешно запланирована на " + DataGenerator.getDate(5)));
     }
